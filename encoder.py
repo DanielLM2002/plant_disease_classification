@@ -1,6 +1,5 @@
 import torch 
 import torch.nn as nn
-import torch.nn.functional as functional
 from torch.nn.functional import relu
 
 class Encoder(nn.Module):
