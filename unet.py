@@ -87,7 +87,7 @@ class Encoder(nn.Module):
         self.down1 = Down(64, 128)
         self.down2 = Down(128, 256)
         self.down3 = Down(256, 512)
-        self.down4 = Down(512, 512)
+        self.down4 = Down(512, 1024)
     
 
     def forward(self, x):
