@@ -1,5 +1,8 @@
 import os
 import torch.nn as nn
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # MODEL PARAMETERS
 USE_UNET = True
@@ -9,6 +12,7 @@ CNN_BATCH_SIZE = 32
 AE_BATCH_SIZE = 32
 ENCODER_CNN_BATCH_SIZE = 4
 TRAIN_ENCODER_WEIGHTS = False
+API_KEY = os.getenv('API_KEY')
 
 LOSS_FUNCTION = nn.MSELoss()
 LEARNING_RATE = 0.001
