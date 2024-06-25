@@ -43,4 +43,5 @@ CNN_SAVE_PATH = \
     os.path.join('best_models', f'h1_{int(UNLABELED_SET_SIZE*100)}-{int(LABELED_TRAIN_SET_ABSOLUTE_SIZE*100)}-{int(LABELED_TEST_SET_ABSOLUTE_SIZE*100)}_classifierA.pth')
 CNN_ENCODER_SAVE_PATH = \
     os.path.join('best_models', f'h1_{int(UNLABELED_SET_SIZE*100)}-{int(LABELED_TRAIN_SET_ABSOLUTE_SIZE*100)}-{int(LABELED_TEST_SET_ABSOLUTE_SIZE*100)}_classifier{"B" if not TRAIN_ENCODER_WEIGHTS else "B"}.pth')
-
+CNN_DENOISING_SAVE_PATH = \
+    os.path.join('best_models', f'h2_{int(UNLABELED_SET_SIZE*100)}-{int(LABELED_TRAIN_SET_ABSOLUTE_SIZE*100)}-{int(LABELED_TEST_SET_ABSOLUTE_SIZE*100)}_DenoisingClassifier.pth')
