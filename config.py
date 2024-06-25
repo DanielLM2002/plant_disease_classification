@@ -1,5 +1,8 @@
 import os
 import torch.nn as nn
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # MODEL PARAMETERS
 USE_UNET = True
@@ -9,6 +12,7 @@ CNN_BATCH_SIZE = 32
 AE_BATCH_SIZE = 32
 ENCODER_CNN_BATCH_SIZE = 4
 TRAIN_ENCODER_WEIGHTS = False
+API_KEY = os.getenv('API_KEY')
 
 LOSS_FUNCTION = nn.MSELoss()
 LEARNING_RATE = 0.001
@@ -39,4 +43,5 @@ CNN_SAVE_PATH = \
     os.path.join('best_models', f'h1_{int(UNLABELED_SET_SIZE*100)}-{int(LABELED_TRAIN_SET_ABSOLUTE_SIZE*100)}-{int(LABELED_TEST_SET_ABSOLUTE_SIZE*100)}_classifierA.pth')
 CNN_ENCODER_SAVE_PATH = \
     os.path.join('best_models', f'h1_{int(UNLABELED_SET_SIZE*100)}-{int(LABELED_TRAIN_SET_ABSOLUTE_SIZE*100)}-{int(LABELED_TEST_SET_ABSOLUTE_SIZE*100)}_classifier{"B" if not TRAIN_ENCODER_WEIGHTS else "B"}.pth')
-
+CNN_DENOISING_SAVE_PATH = \
+    os.path.join('best_models', f'h2_{int(UNLABELED_SET_SIZE*100)}-{int(LABELED_TRAIN_SET_ABSOLUTE_SIZE*100)}-{int(LABELED_TEST_SET_ABSOLUTE_SIZE*100)}_DenoisingClassifier.pth')
