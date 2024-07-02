@@ -25,9 +25,9 @@ PATIENCE = 5
 
 
 # DATASET PARAMETERS
-UNLABELED_SET_SIZE = 0.8
-LABELED_TRAIN_SET_ABSOLUTE_SIZE = 0.1
-LABELED_TEST_SET_ABSOLUTE_SIZE = 0.1
+UNLABELED_SET_SIZE = 0.5
+LABELED_TRAIN_SET_ABSOLUTE_SIZE = 0.35
+LABELED_TEST_SET_ABSOLUTE_SIZE = 0.15
 
 BASE_DIR_RAW = os.path.join('Plant_leave_diseases_dataset', 'original')
 BASE_DIR_NOISY = os.path.join('Plant_leave_diseases_dataset', 'with_noise')
