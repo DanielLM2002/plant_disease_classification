@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # MODEL PARAMETERS
-USE_UNET = True
+USE_UNET = False
 USE_DENOISING_AUTOENCODER = False
 AE_TRANSFORMS = 'mse'
 CNN_BATCH_SIZE = 32
