@@ -1,26 +1,33 @@
 import os
 import torch.nn as nn
 from dotenv import load_dotenv
+import torch.nn.functional as F
+import torch
+def vae_loss(reconstructed_x, x, mu, logvar):
+    recon_loss = F.mse_loss(reconstructed_x, x, reduction='sum')
+    kl_loss = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
+    return recon_loss + kl_loss
 
 load_dotenv()
 
 # MODEL PARAMETERS
 USE_UNET = False
-USE_DENOISING_AUTOENCODER = True
+USE_VAE = True
+USE_DENOISING_AUTOENCODER = False
 AE_TRANSFORMS = 'mse'
 CNN_BATCH_SIZE = 32
 AE_BATCH_SIZE = 32
 ENCODER_CNN_BATCH_SIZE = 32
-TRAIN_ENCODER_WEIGHTS = False
+TRAIN_ENCODER_WEIGHTS = True
 API_KEY = os.getenv('API_KEY')
 
-LOSS_FUNCTION = nn.MSELoss()
-LEARNING_RATE = 0.001
+LOSS_FUNCTION = vae_loss
+LEARNING_RATE = 0.0001
 
 CHANNELS = 3
-LATENT_CHANNELS = 2
-HEIGHT = 112
-WIDHT = 112
+LATENT_CHANNELS = 1
+HEIGHT = 16
+WIDHT = 8
 
 EPOCHS = 30
 PATIENCE = 5

@@ -50,8 +50,9 @@ class AutoEncoder(nn.Module):
         logvar = self.fc_logvar(h)
 
         z = self.reparameterize(mu, logvar)
+        self.z = z
         
         h = self.fc(z)
         h = h.view(-1, 8, 56, 56)
-        x = self.decoder(h)
-        return x
+        x_recon = self.decoder(h)
+        return x_recon, mu, logvar
